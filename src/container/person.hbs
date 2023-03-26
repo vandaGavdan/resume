@@ -1,0 +1,205 @@
+{{!--
+Це код container файлу для summary сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/summary"
+--}}
+
+<div>
+    {{#with person}}
+    <div>
+        <h1>{{name}}</h1>
+    </div>
+    <div>
+        <em>{{age}}</em>
+    </div>
+    <br>
+    <div>
+        <em>{{gender}}</em>
+    </div>
+    <div>
+        {{/with}}
+    </div>
+</div>
+
+<hr>
+<br>
+
+<div>
+    <section>
+        {{>title data="My educations"}}
+        <div>
+            <ul>
+                {{#each person.education}}
+                <li>
+                    <div>
+                        <b>{{degree}}</b>
+                    </div>
+
+                    <div>
+                        <p>{{major}}</p>
+                    </div>
+
+                    <div>
+                        <p>{{university}}</p>
+                    </div>
+
+                    <div>
+                        <p>{{graduationYear}}</p>
+                    </div>
+                </li>
+
+                {{/each}}
+            </ul>
+        </div>
+        <br>
+        {{>title data="My work experience"}}
+        <div>
+            <ul>
+                {{#each person.workExperience}}
+                <li>
+                    <div>
+                        <b>{{company}}</b>
+                    </div>
+
+                    <div>
+                        <p>{{title}}</p>
+                    </div>
+
+                    <div>
+                        <p>{{startDate}} - {{endDate}}</p>
+                    </div>
+
+                    <div>
+                        <ul>
+                            {{#each responsibilities}}
+                            <li>{{name}}</li>
+                            {{/each}}
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p>{{year_founded}}</p>
+                    </div>
+
+                    <div>
+                        <p>{{industry}}</p>
+                    </div>
+                    <ul>
+                        <div>
+                            <strong>Employees : </strong>
+                        </div>
+                        <br>
+                        <div>
+                            {{#each employees}}
+                            <li>{{name}}</li>
+                            <p>{{position}}</p>
+                            <p>{{department}}</p>
+
+                            <div>
+                                <ul>
+                                    <div>
+                                        <strong>Projects : </strong>
+                                    </div>
+                                    {{#each projects}}
+
+                                    <p>{{name}}</p>
+                                    <p>{{description}}</p>
+                                    <p>{{status}}</p>
+
+                                    <div>
+                                        <ul>
+                                            <div>
+                                                <strong>Teams : </strong>
+                                            </div>
+                                            {{#each teams}}
+                                            <p>{{team_name}}</p>
+
+
+                                            <div>
+                                                <strong>Team leader: </strong>
+                                            </div>
+                                            <p>{{team_leader.name}}</p>
+                                            <p>{{team_leader.title}}</p>
+                                            <p>{{team_leader.email}}</p>
+
+                                            <div>
+                                                <strong>Team members: </strong>
+                                            </div>
+                                            {{#each team_members}}
+                                            <p>{{name}}</p>
+                                            <p>{{title}}</p>
+                                            <p>{{email}}</p>
+                                            <div>
+                                                <p> Skills: </p>
+                                            </div>
+                                            <p>{{skills}}</p>
+                                            <ul>
+                                                <div>
+                                                    <strong>Projects:</strong>
+                                                </div>
+                                                <div>
+                                                    {{#each projects1}}
+                                                    <p>{{name}}</p>
+                                                    <p>{{description}}</p>
+                                                    <p>{{technologies}}</p>
+
+                                                    <ul>
+                                                        <div>
+                                                            <strong>Team members:</strong>
+                                                        </div>
+
+                                                        <div>
+                                                            {{#each team_members}}
+
+                                                            <p>{{name}}</p>
+
+                                                            <p>{{title}}</p>
+                                                            {{/each}}
+                                                        </div>
+                                                    </ul>
+
+                                                    {{/each}}
+                                                </div>
+                                            </ul>
+
+                                            {{/each}}
+
+                                            {{/each}}
+                                        </ul>
+                                    </div>
+                                    {{/each}}
+                                </ul>
+
+                            </div>
+
+
+                            {{/each}}
+
+                        </div>
+                    </ul>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </section>
+</div>
+
+<hr>
+<br>
+
+<div>
+    <footer>
+        <div>
+            {{#with person.address}}
+            <div>
+                <em>{{street}} / {{city}} / {{state}} / {{zip}} / {{country}}</em>
+            </div>
+
+            {{/with}}
+        </div>
+    </footer>
+</div>
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
