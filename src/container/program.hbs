@@ -1,0 +1,99 @@
+<div>
+    {{#with program.excursion}}
+    <div>
+        <h2>{{name}}</h2>
+
+        <h2>{{location.city}}</h2>
+
+        <h2>{{location.country}}</h2>
+
+        <h3>{{date}}</h3>
+    </div>
+    <br>
+    <hr>
+    <div>
+        {{>title data="Program :"}}
+        <hr>
+        <div>
+            <div>
+                {{#each program}}
+                <strong>
+                    <p>{{name}}</p>
+                    <p>{{type}}</p>
+                    <p>Program duration ({{duration}})</p>
+                </strong>
+
+                {{#with details}}
+
+                {{#with museum}}
+                <ul>
+                    <strong>Museum: {{name}}</strong>
+                    <ul>
+                        {{>showLocation data=location}}
+                    </ul>
+                    <br>
+
+                    {{#each exhibits}}
+                    <br>
+                    <strong>Exhibit :{{name}}</strong>
+                    <br>
+
+                    {{#if artist}}
+                    <li>{{artist}}</li>
+                    {{else}}
+
+                    {{/if}}
+                    <li>{{description}}</li>
+
+                    {{#if audio_guide}}
+                    <br>
+                    {{else}}
+                    <br>
+                    {{/if}}
+                    {{/each}}
+
+                    {{/with}}
+                </ul>
+
+                {{#with venue}}
+                <strong>Venue:</strong><br>
+                <ul>
+                    <p>{{name}}</p>
+                    {{>showLocation data=location}}
+                </ul>
+                {{/with}}
+
+                {{#each performers}}
+                <strong>Performers:</strong><br>
+                <ul>
+                    <li>{{name}}</li>
+                    <p>{{type}}</p><br>
+                </ul>
+                {{/each}}
+
+                <br>
+                <strong>Guide:</strong>
+                {{#with guide}}
+                <b>{{name}}</b>/
+                <b>{{language}}</b>/
+                <b>{{rating}}</b>
+                {{/with}}
+                <p>_________________________________________</p>
+
+                {{/with}}
+
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+{{/with}}
+</div>
+
+
+{{!--
+Цей код містить лише те, що буде виводитись в {{{body}}} в layout/default.hbs
+Адже наш layout/default.hbs має вже структуру HTML
+--}}
