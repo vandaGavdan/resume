@@ -1,0 +1,61 @@
+<div>
+    <ul>
+        <h1>{{name}}</h1>
+        <p>{{description}}</p>
+
+        <div>
+            {{#with history}}
+            <p>{{year}}</p>
+            <p>{{founder}}</p>
+            {{/with}}
+        </div>
+        <p>___________________________</p>
+        <div>
+            <h5>JavaScript types: </h5>
+            <p>{{types}}</p>
+        </div>
+        <p>___________________________</p>
+        <div>
+            <h5>JavaScript syntax</h5>
+            {{#with syntax}}
+            <b>Variables:</b>
+            <p>{{variables}}</p>
+            <b>Functions:</b>
+            <p>{{functions}}</p>
+            <b>Conditionals:</b>
+            <p>{{conditionals}}</p>
+            <b>Loops:</b>
+            <p>{{loops}}</p>
+            <b>Classes:</b>
+            <p>{{classes}}</p>
+
+            {{/with}}
+        </div>
+        <p>___________________________</p>
+        <div>
+            <h5>JavaScript features: </h5>
+            <p>{{features}}</p>
+        </div>
+        <p>___________________________</p>
+
+        <div>
+            <h5>JavaScript libraries: </h5>
+            <p>{{libraries}}</p>
+        </div>
+        <p>___________________________</p>
+
+        <div>
+            <h5>JavaScript tools: </h5>
+            <p>{{tools}}</p>
+        </div>
+        <p>___________________________</p>
+
+        <div>
+            <h5>JavaScript community: </h5>
+            {{#each community}}
+            <li>{{name}} : {{type}}</li>
+            <br>
+            {{/each}}
+        </div>
+    </ul>
+</div>
