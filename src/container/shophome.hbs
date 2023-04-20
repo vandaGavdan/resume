@@ -16,7 +16,7 @@
         <h1>{{title}}</h1>
         <div class="row">
             {{#each cards}}
-            <div class="col-4 my-3">
+            <div class="col-3 my-3">
                 <div class="card text-bd-light">
                     <div class="card-header text-bg-dark">
                         {{title}}
@@ -44,58 +44,46 @@
     </diV>
     <br>
     <hr>
-    <div class="card">
-        <nav class="nav nav-table">
-            {{#with goodsBlock}}
-            {{#each tabs}}
-            {{#if isActive}}
-            <a class="nav-link active" href="#">{{text}}</a>
-            {{/if}}
 
-            {{#if isDisabled}}
-            <a class="nav-link active" href="#">{{text}}</a>
-            {{/if}}
-            {{#if isDisabled}}
-            <a class="nav-link" href="#">{{text}}</a>
-            {{/if}}
+    <nav class="nav nav-table">
+        {{#with goodsBlock}}
+        {{#each tabs}}
+        {{#if isActive}}
+        <a class="nav-link" href="#">{{text}}</a>
+        {{/if}}
+        {{/each}}
+        <br>
+        <hr>
 
-            {{#if isActive}}
-            <a class="nav-link" href="#">{{text}}</a>
-            {{/if}}
+        <div class="row">
+            {{#each cards}}
+            <div class="col-4 my-3">
+                <div class="card text-bd-light">
+                    <div class="card-header text-bg-light">
+                        {{title}}
+                        {{#if isHot}}
+                        <span class="badge text-bg-success rounded-pill text-capitalize">
+                            Hot
+                        </span>
+                        {{/if}}
 
-            {{/each}}
-            <br>
-            <hr>
+                        {{#if isNew}}
+                        <span class="badge text-bg-danger rounded-pill text-capitalize">
+                            Нове
+                        </span>
+                        {{/if}}
+                    </div>
 
-            <div class="row">
-                {{#each cards}}
-                <div class="col-4 my-3">
-                    <div class="card text-bd-light">
-                        <div class="card-header text-bg-light">
-                            {{title}}
-                            {{#if isHot}}
-                            <span class="badge text-bg-success rounded-pill text-capitalize">
-                                Hot
-                            </span>
-                            {{/if}}
-
-                            {{#if isNew}}
-                            <span class="badge text-bg-danger rounded-pill text-capitalize">
-                                Нове
-                            </span>
-                            {{/if}}
-                        </div>
-
-                        <div class="card-body text-bg-light text-center">
-                            <p class="card-title">{{description}}</p>
-                        </div>
+                    <div class="card-body text-bg-light text-center">
+                        <p class="card-title">{{description}}</p>
                     </div>
                 </div>
-                {{/each}}
             </div>
-            {{/with}}
-        </nav>
-    </div>
+            {{/each}}
+        </div>
+        {{/with}}
+    </nav>
+
     <br>
     <hr>
     <div class="rov">
