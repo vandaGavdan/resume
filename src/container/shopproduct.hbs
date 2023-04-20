@@ -1,0 +1,233 @@
+<main>
+    <div class="card">
+        <nav class="nav">
+            {{#with navigation}}
+            {{#each links}}
+            <a class="nav-link" href="{{href}}">{{text}}</a>
+            {{/each}}
+            {{/with}}
+            <a class="nav-link disabled" href="#">Disabled</a>
+        </nav>
+    </div>
+    <br>
+    <hr>
+    <nav class="nav">
+        {{#each breadcrumb}}
+        <a class="nav-link" href="{{url}}" {{#if @last}}disabled{{/if}}>{{name}}/</a>
+        {{/each}}
+    </nav>
+
+    <br>
+    <hr>
+
+    {{#with productData}}
+    <div class="row">
+        <div class="col-6 my-3">
+            <img src="{{img}}">
+        </div>
+
+
+        <div class="col-6">
+            <div class="card">
+                <table class="table">
+                    {{#with item}}
+
+                    <thead>
+                        <tr>
+                            {{#each head}}
+                            <th>{{this}}</th>
+                            {{/each}}
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {{#each body}}
+                        <tr>
+                            {{#each this}}
+
+                            <td>{{this}}</td>
+
+                            {{/each}}
+                        </tr>
+                        {{/each}}
+                    </tbody>
+
+                    {{/with}}
+                </table>
+            </div>
+        </div>
+
+
+        <div class="col-6">
+            <div class="card">
+
+                {{#with info}}
+                <div class="card-body">
+                    <h5>{{title}}</h5>
+                    <p>{{about}}</p>
+                    <h4>{{price}}</h4>
+
+                    {{#each category}}
+                    {{#if isHot}}
+                    <span class="badge text-bg-warning rounded-pill text-capitalize">
+                        {{name}}
+                    </span>
+                    {{/if}}
+
+                    {{#if isNew}}
+                    <span class="badge text-bg-primary rounded-pill text-capitalize">
+                        {{name}}
+                    </span>
+                    {{/if}}
+
+                    {{#if isBonus}}
+                    <span class="badge text-bg-info rounded-pill text-capitalize">
+                        {{name}}
+                    </span>
+                    {{/if}}
+                    {{/each}}
+                </div>
+                {{/with}}
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+        <div class="col-6">
+            <div class="card">
+                {{#with param}}
+                <div class="card-header">
+                    <h5>{{title}}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    {{#each list}}
+                    <li class="list-group-item">
+                        <a>{{this}}</a>
+                    </li>
+                    {{/each}}
+                </ul>
+
+                {{#with alert}}
+                {{#if isError}}
+                <a>{{text}}</a>
+                {{/if}}
+                {{/with}}
+
+                {{/with}}
+            </div>
+
+
+            <div class="card">
+                {{#with alert}}
+                {{#if isError}}
+                <a class="text-danger">{{text}}</a>
+                {{/if}}
+                {{/with}}
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div class="card">
+        <nav class="nav">
+            {{#each actionList}}
+
+            <div class="col-3 mb-1">
+                {{#if isWarning}}
+                <button class="btn btn-warning">{{name}}</button>
+                {{/if}}
+
+                {{#if isError}}
+                <button class="btn btn-outline-danger">{{name}}</button>
+                {{/if}}
+
+                {{#if isSuccess}}
+                <button class="btn btn-success">{{name}}</button>
+                {{/if}}
+
+                {{#if isGood}}
+                <button class="btn btn-outline-success">{{name}}</button>
+                {{/if}}
+            </div>
+
+            {{/each}}
+        </nav>
+    </div>
+
+    {{/with}}
+
+    <br>
+    <hr>
+    <br>
+
+    <div class="card">
+        <nav class="nav nav-table">
+            {{#with goodsOtherBlock}}
+            <h2>{{title}}</h2>
+            <div class="row">
+                {{#each cards}}
+                <div class="col-4 my-3">
+                    <div class="card text-bd-light">
+                        <div class="card-header text-bg-light">
+                            {{title}}
+                            {{#if isHot}}
+                            <span class="badge text-bg-success rounded-pill text-capitalize">
+                                Hot
+                            </span>
+                            {{/if}}
+
+                            {{#if isNew}}
+                            <span class="badge text-bg-danger rounded-pill text-capitalize">
+                                Нове
+                            </span>
+                            {{/if}}
+                        </div>
+                        <img src="{{image}}">
+                        <div class="card-body text-bg-light text-center">
+                            <p class="card-title">{{description}}</p>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            {{/with}}
+        </nav>
+    </div>
+
+    <br>
+    <hr>
+    <div class="rov">
+        <div class="col-12">
+            {{#with service}}
+            <div class="card text-bg-success text-center">
+                <h2>{{title}}</h2>
+                <p>{{description}}</p>
+
+                <div class="card-body">
+                    {{#each buttons}}
+                    <button href="{{link}}" class="btn btn-primary">{{text}}</button>
+                    {{/each}}
+                </div>
+            </div>
+            {{/with}}
+        </div>
+    </div>
+    <br>
+    <hr>
+
+    {{#each footer}}
+    {{#each this}}
+
+    <p>
+        <a class="nav-link text-info" href="{{link}}"> {{text}}</a>
+    </p>
+    {{/each}}
+    {{/each}}
+
+</main>
