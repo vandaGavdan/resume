@@ -13,57 +13,16 @@
     <hr>
 
     <div>
-        {{#with header}}
-        <h2>{{title}}</h2>
-        {{#with button}}
-        <button href="{{link}}" class="btn btn-outline-dark">{{text}}</button>
-        {{/with}}
-        {{/with}}
+        {{>shopheader data=header}}
     </div>
     <br>
     <br>
     <hr>
     <br>
 
-
-
-
-
-
-    {{#each goodsBlock}}
-    <div class="card">
-
-        <div class="row">
-            <div class="col-2">
-                <img src="{{image}}">
-            </div>
-
-            <div class="col-6">
-                {{name}}
-                {{description}}
-                {{amount}}
-            </div>
-
-            <div class="col-4 mb-2">
-                {{#each buttons}}
-                <br>
-                {{#if isPrimary}}
-                <button class="btn btn-warning">{{text}}</button>
-                {{/if}}
-                <br>
-                {{#if isDanger}}
-                <button class="btn btn-outline-danger">{{text}}</button>
-                {{/if}}
-
-                {{/each}}
-
-            </div>
-        </div>
+    <div>
+        {{>cartGoodsItem data=goodsBlock}}
     </div>
-    <br>
-    {{/each}}
-
-
 
 
     <div>
@@ -142,16 +101,6 @@
     </div>
     <br>
     <hr>
-    {{#each footer}}
-    <div class="row">
-        {{#each this}}
-        <div class="col-3">
-            <p>
-                <a href="{{link}}" class="text-info"> {{text}}</a>
-            </p>
-            <br>
-        </div>
-        {{/each}}
-    </div>
-    {{/each}}
+
+    {{>shopfooter data=footer}}
 </main>
