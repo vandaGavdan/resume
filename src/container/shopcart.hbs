@@ -1,19 +1,15 @@
 <main>
-    <div class="card">
-        <nav class="nav">
-            {{#with navigation}}
-            {{#each links}}
-            <a class="nav-link" href="{{href}}">{{text}}</a>
-            {{/each}}
-            {{/with}}
-            <a class="nav-link disabled" href="#">Disabled</a>
-        </nav>
-    </div>
+    {{>shopheader data=navigation}}
     <br>
     <hr>
 
     <div>
-        {{>shopheader data=header}}
+        {{#with header}}
+        <h2>{{title}}</h2>
+        {{#with button}}
+        <button href="{{link}}" class="btn btn-outline-dark">{{text}}</button>
+        {{/with}}
+        {{/with}}
     </div>
     <br>
     <br>
